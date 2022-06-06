@@ -1,0 +1,19 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}メモアプリ-トップ{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>メモアプリ</h1>
+    <a href="/memo/create" role="button">新規作成画面</a>
+    <a href="/auth/logout" role="button">ログアウト</a>
+    {% for memo in memos %}
+    <article>
+        <h2>{{ memo.title }}</h2>
+        <a href="/memo" role="button">編集</a>
+        <a href="/memo/{{memo.id}}/delete" role="button">削除</a>
+        <p>{{ memo.created_at }}</p>
+        <p>{{ memo.body }}</p>
+    </article>
+    {% endfor %}
+</div>
+{% endblock %}
